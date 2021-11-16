@@ -1,0 +1,35 @@
+.form-div {
+    width: 100%;
+}
+
+.form__group {
+    border-radius: 10px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    position: relative;
+    outline: 0px;
+    margin: auto;
+    display: inline-block;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 24px;
+    border-width: 1px 0px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.12);
+    border-image: initial;
+    width: 200px;
+    vertical-align:top;
+}
+  
+  
+.form__group label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555555;
+}
+
+.form__group span {
+    margin-left: 25%;
+}
+  

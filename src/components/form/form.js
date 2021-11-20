@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import {WeightSlider} from '../inputs/WeightSlider';
 import axios from 'axios';
+import $ from 'jquery';
 import './form.css'
 
 const initialValue = {
-    inequalityWeight: 5,
-    costOfLifeWeight: 5,
-    educationalWeight: 5,
-    safetyWeight: 5,
-    employmentWeight: 5,
-    hdiWeight: 5,
-    gdpPerCapitaWeight: 5,
-    purchasingPowerWeight: 5,
-    healthQualityWeight: 5
-  }
+  inequalityWeight: 5,
+  costOfLifeWeight: 5,
+  educationalWeight: 5,
+  safetyWeight: 5,
+  employmentWeight: 5,
+  hdiWeight: 5,
+  gdpPerCapitaWeight: 5,
+  purchasingPowerWeight: 5,
+  healthQualityWeight: 5
+}
   
 export const MyForm = () => {
     const [values, setValues] = useState(initialValue);
@@ -32,10 +33,10 @@ export const MyForm = () => {
         url: 'http://localhost:5000/recommendation',
         data: values
       }).then((response) => {
-        console.log(response.data)
+        localStorage.setItem('objteste', JSON.stringify(response.data.data[0]));
+        window.location.reload()
       })
     }
-  
     return (
       <div className="form-div">  
         <form onSubmit={onSubmit}>

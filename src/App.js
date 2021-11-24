@@ -5,15 +5,19 @@ import {CountryCard} from './components/cards/country-card';
 
 
 function App() {
-  const [data, setData] = React.useState({})
+  const [datas, setDatas] = React.useState([])
   React.useEffect(() => {
-    setData(JSON.parse(localStorage.getItem('objteste')))
+    setDatas(JSON.parse(localStorage.getItem('objteste')))
   }, [])
   return (
     <div className="App">
      <h1>Projeto OPE</h1>
-     <MyForm/>     
-     <CountryCard data={data}/>
+     <MyForm/> 
+      <div style={{margin: '30px auto'}}>
+        {datas.map((data)=>(
+           <CountryCard data={data}/>
+        ))}
+      </div>    
     </div>
   );
 }

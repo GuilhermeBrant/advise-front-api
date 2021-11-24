@@ -9,7 +9,7 @@ export function WeightSlider({name, onChange}) {
       label: 'Indiferente',
     },
     {
-      value: 10,
+      value: 2,
       label: 'Importante',
     },
   ];
@@ -20,11 +20,11 @@ export function WeightSlider({name, onChange}) {
       <Slider
         onChange={onChange}
         name={name}
-        defaultValue={5}
+        defaultValue={1}
         step={1}
         marks={marks}
         min={0}
-        max={10}
+        max={2}
         valueLabelDisplay="auto"
       />
       </Box>

@@ -23,19 +23,19 @@ ChartJS.register(
 export const CountryCard = ({data}) => {
   const infs = {
     labels: [
-      'income_costs_idx',
-	    'educational_idx',
-	    'safety_idx',
-	    'employment_idx',
-	    'hdi_idx',
-	    'GDP_per_capita_idx',
-	    'purchasing_power_idx',
-	    'equality_idx',
-	    'health_quality_idx'
+      'Renda após o custo de vida',
+	    'Educação',
+	    'Segurança',
+	    'Empregabilidade',
+	    'IDH',
+	    'PIB per capita',
+	    'Poder de compra',
+	    'Equidade Social',
+	    'Saúde'
     ],
     datasets: [{
-      label: 'indices normalizados',
-      backgroundColor:'rgba(0,255,0,1)',
+      label: 'Pontuação',
+      backgroundColor:'#1976d2',
       borderColor:'black',
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(0,255,0,0.2)',
@@ -55,18 +55,35 @@ export const CountryCard = ({data}) => {
   };
   const options = {
     maintainAspectRadio: false,
-    responsive: true
-  } 
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: data.country,
+      },
+    }
+  };
   
   return (
-  <div id="recomendation-card" className="promotion-card">
+  <div id="recomendation-card" className="recomendation-card">
     
-    <div className="promotion-card__info">
-      <h1 className="promotion-card__title">{data.country}</h1>
+    <div className="card-rank-number">
+      <h2>Rank</h2>
+      <h1>{data.rank}</h1>
     </div>
-    <div>
+
+    <div className="card-graph">
       <Bar data={infs} options={options}/>
     </div>
+
+    <div className="card-extras">
+      <h3>{data.country}</h3>
+      <p>Temperatura média {data.average_celsius}°C</p>
+      <p>Renda média U${data.average_monthly_income}</p>
+      <p>Custo de vida médio U${data.cost_of_living}</p>
+      <p>Taxa de residentes estrangeiros {data.foreign_resident_tax}%</p>
+    </div>
+
   </div>
   )
 };

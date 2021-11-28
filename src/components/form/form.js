@@ -33,7 +33,7 @@ export const MyForm = () => {
         url: 'http://localhost:5000/recommendation',
         data: values
       }).then((response) => {
-        localStorage.setItem('objteste', JSON.stringify(response.data.data[0]));
+        localStorage.setItem('datasCountries', JSON.stringify(response.data.data));
         window.location.reload()
       })
     }
@@ -77,7 +77,7 @@ export const MyForm = () => {
             <WeightSlider name="healthQualityWeight" onChange={onChange} />
           </div>
           <div>
-            <button type="submit">Encontrar</button>
+            <button className="btn button-recomend" type="submit">Encontrar</button>
           </div>
         </form>
       </div>
